@@ -1,0 +1,25 @@
+<h1>Stupid coaching</h1>
+
+<% if @question && @question.length > 0 %>
+  <% answer = ""
+  if @question.include?("?")
+    answer = "Silly question, get dressed and go to work!"
+  else
+    answer = @question == "I am going to work" ? "Great!" : "I don't care, get dressed and go to work!"
+   end %>
+
+  <div class="question">
+    <div id="you"><%= @question %></div>
+    <p class="quoted">-You</p>
+  </div>
+
+  <div class="answer">
+    <div id="coach"><%= answer %></div>
+    <p class="quoted">-Your coach</p>
+  </div>
+
+  <div id="link">
+    <%= link_to "Ask a new Question", "/ask" %>
+  </div>
+
+<% end %>
